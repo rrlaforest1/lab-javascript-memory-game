@@ -43,7 +43,6 @@ class MemoryGame {
   }
 
   samePair(card1, card2) {
-    this.pairsGuessed++;
     card1.classList.add("blocked");
     card2.classList.add("blocked");
     this.updatedPairsGuessed();
