@@ -74,8 +74,8 @@ function prepareGame() {
 
       if (cardHolder.length === 2) {
         const pairChecked = memoryGame.checkIfPair(
-          cardHolder[0].getAttribute("data-card-name"),
-          cardHolder[1].getAttribute("data-card-name")
+          cardHolder[0].dataset.cardName,
+          cardHolder[1].dataset.cardName
         );
         memoryGame.updatedPairsClicked();
         if (pairChecked) {
