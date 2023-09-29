@@ -34,8 +34,6 @@ const pairsGuessedCounter = document.querySelector("#pairs-guessed");
 const winModal = document.querySelector("#winModal");
 const playAgain = winModal.querySelector("button");
 
-let cardHolder = [];
-
 window.addEventListener("load", (event) => {
   prepareGame();
 });
@@ -70,20 +68,26 @@ function prepareGame() {
       /**
        * limit the number of cards to 2
        */
-      cardHolder.push(currentCard);
+      memoryGame.pickedCards.push(currentCard);
 
-      if (cardHolder.length === 2) {
+      if (memoryGame.pickedCards.length === 2) {
         const pairChecked = memoryGame.checkIfPair(
-          cardHolder[0].dataset.cardName,
-          cardHolder[1].dataset.cardName
+          memoryGame.pickedCards[0].dataset.cardName,
+          memoryGame.pickedCards[1].dataset.cardName
         );
         memoryGame.updatedPairsClicked();
         if (pairChecked) {
-          memoryGame.samePair(cardHolder[0], cardHolder[1]);
+          memoryGame.samePair(
+            memoryGame.pickedCards[0],
+            memoryGame.pickedCards[1]
+          );
         } else {
-          memoryGame.differentPair(cardHolder[0], cardHolder[1]);
+          memoryGame.differentPair(
+            memoryGame.pickedCards[0],
+            memoryGame.pickedCards[1]
+          );
         }
-        cardHolder = [];
+        memoryGame.pickedCards = [];
       }
     });
   });

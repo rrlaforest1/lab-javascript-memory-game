@@ -50,9 +50,9 @@ class MemoryGame {
     /**
      * if finished win mesage
      */
-    if (this.checkIfFinished()) {
-      this.winMessage();
-    }
+    // if (this.checkIfFinished()) {
+    this.winMessage();
+    // }
   }
 
   differentPair(card1, card2) {
@@ -85,12 +85,12 @@ class MemoryGame {
 
   // Reset all values and recreate board (with suffled cards)
   newGame() {
+    winModal.close();
     prepareGame();
-    this.pickedCards = [];
-    this.pairsClicked = 0;
-    this.pairsGuessed = 0;
-    updatedPairsClicked();
-    updatedPairsGuessed();
-    winModal.hide();
+    memoryGame.pickedCards = [];
+    memoryGame.pairsClicked = 0;
+    memoryGame.pairsGuessed = 0;
+    memoryGame.updatedPairsGuessed();
+    memoryGame.updatedPairsClicked();
   }
 }
